@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Pinterest 后台</title>
+    <link rel="stylesheet" href="/static/css/order.css">
+    <base target=_blank>
+    <style>
+        a:link{
+            color: blue; text-decoration:none;
+        }
+        a:hover{
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Pinterest 账号信息</h1>
+    <table width="90%"  align="center" border="3" bordercolor="#999999" cellspacing="0" style="border-collapse:collapse">
+        <p>
+            <tr class="log">
+                <td>ID</td>
+                <td>账号总数量：[{{ all_count }}] 正常账号数量：[{{ right_count }}]</td>
+                <td>Pin 图来源网站</td>
+            </tr>
+        </p>
+        <p>
+        {% for i in s %}
+            <tr>
+                <td>{{ i.id }}</td>
+                {% if i.state == 1 %}
+                    <td><a href='{{ i.home_page }}'>{{ i.email }}[正常]</a></td>
+                {% elif i.state == 99 %}
+                    <td bgcolor="#D0D0D0"><a href='{{ i.home_page }}'>{{ i.email }}[被封]</a></td>
+                {% else %}
+                    <td bgcolor="red"><a href='{{ i.home_page }}'>{{ i.email }}[异常]</a></td>
+                {% endif %}
+                <td>
+                    <a href="{{ i.upload_web }}">{{ i.upload_web }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </p>
+    </table>
+</body>
+</html>

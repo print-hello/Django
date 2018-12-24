@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Storenvy 后台</title>
+    <link rel="stylesheet" href="/static/css/order.css">
+    <base target=_blank>
+    <style>
+        a:link{
+            color: blue; text-decoration:none;
+        }
+        a:hover{
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Storenvy 订单监控</h1>
+    <div align="center">
+        <button type="submit" onclick="window.open('http://172.16.252.123:8000/show/click')" id="update_btn" name="update_btn" class="update_btn">点击更新数据</button>
+    </div>
+    <table width="90%"  align="center" border="3" bordercolor="#999999" cellspacing="0" style="border-collapse:collapse">
+        <p>
+            <tr class="log">
+                <td>ID</td>
+                <td>Store ID</td>
+                <td>Store Name</td>
+                <td>Sale Today</td>
+                <td>Sale All</td>
+            </tr>
+        </p>
+        <p>
+        {% for i in s %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.store_id }}</td>
+                <td>
+                    <a href='https://www.storenvy.com/stores/{{ i.store_id }}'>{{ i.store_name }}</a>
+                </td>
+                <td>{{ i.sale_today }}</td>
+                <td>{{ i.sale_all }}</td>
+            </tr>
+        {% endfor %}
+        </p>
+    </table>
+</body>
+</html>

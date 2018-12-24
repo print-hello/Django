@@ -1,0 +1,18 @@
+missing module named resource - imported by posix, E:\django\django_run.py\run.py
+missing module named posix - imported by os, E:\django\django_run.py\run.py
+missing module named _posixsubprocess - imported by subprocess, E:\django\django_run.py\run.py
+missing module named 'org.python' - imported by pickle, E:\django\django_run.py\run.py, xml.sax
+missing module named readline - imported by cmd, code, pdb, E:\django\django_run.py\run.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, E:\django\django_run.py\run.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, E:\django\django_run.py\run.py
+missing module named _winreg - imported by platform, E:\django\django_run.py\run.py
+missing module named _scproxy - imported by urllib.request
+missing module named java - imported by platform, E:\django\django_run.py\run.py
+missing module named 'java.lang' - imported by platform, E:\django\django_run.py\run.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, E:\django\django_run.py\run.py
+missing module named termios - imported by tty, E:\django\django_run.py\run.py, getpass
+missing module named grp - imported by tarfile, shutil, E:\django\django_run.py\run.py
+missing module named pwd - imported by posixpath, tarfile, shutil, http.server, webbrowser, E:\django\django_run.py\run.py, netrc, getpass
+missing module named ce - imported by os, E:\django\django_run.py\run.py
+missing module named _dummy_threading - imported by dummy_threading, E:\django\django_run.py\run.py
+missing module named org - imported by copy, E:\django\django_run.py\run.py
