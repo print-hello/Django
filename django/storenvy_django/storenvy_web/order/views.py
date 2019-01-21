@@ -6,6 +6,8 @@ import subprocess
 
 def hello_views(request):
     s = Storenvy.objects.all()
+    s_time = Storenvy.objects.get(id=1)
+    # time = s_time.spider_time
     return render(request, 'hello.html', locals())
 
 def crawl_views(request):

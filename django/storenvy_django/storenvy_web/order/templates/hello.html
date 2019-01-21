@@ -17,7 +17,7 @@
 <body>
     <h1 align="center">Storenvy 订单监控</h1>
     <div align="center">
-        <button type="submit" onclick="window.open('http://172.16.252.123:8000/show/click')" id="update_btn" name="update_btn" class="update_btn">点击更新数据</button>
+        <button type="submit" onclick="window.open('http://172.16.252.123:8000/show/click')" id="update_btn" name="update_btn" class="update_btn">点击更新数据 Last Update: {{ s_time.spider_time }}</button>
     </div>
     <table width="90%"  align="center" border="3" bordercolor="#999999" cellspacing="0" style="border-collapse:collapse">
         <p>
@@ -32,12 +32,18 @@
         <p>
         {% for i in s %}
             <tr>
-                <td>{{ i.id }}</td>
+                <td color="red">{{ i.id }}</td>
                 <td>{{ i.store_id }}</td>
                 <td>
                     <a href='https://www.storenvy.com/stores/{{ i.store_id }}'>{{ i.store_name }}</a>
                 </td>
-                <td>{{ i.sale_today }}</td>
+                {% if i.sale_today > 0 %}
+                    <td>
+                        <font color="red">{{ i.sale_today }}</font>
+                    </td>
+                {% else %}
+                    <td>{{ i.sale_today }}</td>
+                {% endif %}
                 <td>{{ i.sale_all }}</td>
             </tr>
         {% endfor %}

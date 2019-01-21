@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 	<title>Pinterest 后台</title>
-    <link rel="stylesheet" href="/static/css/order.css">
+    <link rel="stylesheet" href="/static/css/pin_account.css">
     <base target=_blank>
     <style>
         a:link{
@@ -20,7 +20,8 @@
         <p>
             <tr class="log">
                 <td>ID</td>
-                <td>账号总数量：[{{ all_count }}] 正常账号数量：[{{ right_count }}]</td>
+                <td>账号总数量：[{{ all_count }}]-正常账号数量：[{{ right_count }}]-IP 待修改账号：[{{ ip_count }}]</td>
+                <td>端口-IP</td>
                 <td>Pin 图来源网站</td>
             </tr>
         </p>
@@ -30,11 +31,16 @@
                 <td>{{ i.id }}</td>
                 {% if i.state == 1 %}
                     <td><a href='{{ i.home_page }}'>{{ i.email }}[正常]</a></td>
+                {% elif i.state == 2 %}
+                    <td bgcolor="#1E90FF"><a href='{{ i.home_page }}'>{{ i.email }}[IP 错误]</a></td>
+                {% elif i.state == 9 %}
+                    <td bgcolor="#1E90FF"><a href='{{ i.home_page }}'>{{ i.email }}[密码错误]</a></td>
                 {% elif i.state == 99 %}
                     <td bgcolor="#D0D0D0"><a href='{{ i.home_page }}'>{{ i.email }}[被封]</a></td>
                 {% else %}
                     <td bgcolor="red"><a href='{{ i.home_page }}'>{{ i.email }}[异常]</a></td>
                 {% endif %}
+                <td>{{ i.port }}-{{ i.ip }}</td>
                 <td>
                     <a href="{{ i.upload_web }}">{{ i.upload_web }}</a>
                 </td>
