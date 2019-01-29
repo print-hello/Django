@@ -16,6 +16,43 @@
 </head>
 <body>
     <h1 align="center">Pinterest 账号信息</h1>
+    <h2 align="center">进度：{{ run_today }} / {{ right_count }}</h2>
+    <table width="90%"  align="center" border="3" bordercolor="#999999" cellspacing="0" style="border-collapse:collapse">
+        <p>
+            <tr class="log">
+                <td>ID</td>
+                <td>随机浏览</td>
+                <td>图片上传</td>
+                <td>关注</td>
+                <td>Repin 数量</td>
+                <td>翻页次数</td>
+                <td>Boards 创建</td>
+                <td>关键词搜索数量</td>
+                <td>主页 Repin</td>
+                <td>关键词搜索</td>
+                <td>配置</td>
+                <td>备注</td>
+            </tr>
+        </p>
+        <p>
+        {% for c in config %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.random_browsing_control }}</td>
+                <td>{{ c.upload_pic_control }}</td>
+                <td>{{ c.follow_num }}</td>
+                <td>{{ c.pin_self_count }}</td>
+                <td>{{ c.scroll_num }}</td>
+                <td>{{ c.create_board_num }}</td>
+                <td>{{ c.search_words_count }}</td>
+                <td>{{ c.save_pic_from_homepage_control }}</td>
+                <td>{{ c.click_specific_pin_control }}</td>
+                <td>{{ c.priority }}</td>
+                <td>{{ c.content }}</td>
+            </tr>
+        {% endfor %}
+        </p>
+    </table>
     <table width="90%"  align="center" border="3" bordercolor="#999999" cellspacing="0" style="border-collapse:collapse">
         <p>
             <tr class="log">
