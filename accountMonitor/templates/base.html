@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <base target=_blank>
+</head>
+<body>
+{% block storenvy_table %}
+    <div align="center">
+        <a href="{{ pinBigAccount_control }}" target="_self" class="account_link">Pinterest 大号</a>
+        <a href="{{ pinSmallAccount_control }}" target="_self" class="account_link">Pinterest 小号</a>
+        <a href="{{ pinBabyAccount_control }}" target="_self" class="account_link">Pinterest 新号</a>
+    </div>
+    <h1 align="center">{% block h1 %}{% endblock %}</h1>
+    <h2 align="center">进度：{{ run_today }} / {{ right_count }}</h2>
+    {% block configration_table %}{% endblock %}
+    <table width="90%"  align="center" border="3" bordercolor="#999999" cellspacing="0" style="border-collapse:collapse">
+        <p>
+            <tr class="log">
+                <td>ID</td>
+                <td>账号总数量：[{{ all_count }}]-正常账号数量：[{{ right_count }}]{% block ip %}{% endblock %}</td>
+            </tr>
+        </p>
+        <p>
+        {% for i in account_info %}
+            <tr>
+                <td>{{ i.id }}</td>
+                {% if i.state == 1 %}
+                    <td><a href={{ i.home_page }}>{{ i.email }}[正常]</a></td>
+                {% elif i.state == 9 %}
+                    <td bgcolor="#1E90FF"><a href={{ i.home_page }}>{{ i.email }}[密码错误]</a></td>
+                {% else %}
+                    <td bgcolor="red"><a href={{ i.home_page }}>{{ i.email }}[异常]</a></td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </p>
+    </table>
+{% endblock %}
+</body>
+</html>

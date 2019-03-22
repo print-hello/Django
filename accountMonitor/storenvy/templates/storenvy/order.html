@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Storenvy 后台{% endblock %}
+{% block storenvy_table %}
+    <h1 align="center">Storenvy 订单监控</h1>
+    <div align="center">
+        <button type="submit" onclick="window.open('{{ crawl_button }}')" id="update_btn" name="update_btn" class="link_btn">点击更新数据 Last Update: {{ s_time.spider_time }}</button>
+    </div>
+    <table width="90%"  align="center" border="3" bordercolor="#999999" cellspacing="0" style="border-collapse:collapse">
+        <p>
+            <tr class="log">
+                <td>ID</td>
+                <td>Store ID</td>
+                <td>Store Name</td>
+                <td>Sale Today</td>
+                <td>Sale All</td>
+            </tr>
+        </p>
+        <p>
+        {% for i in s %}
+            <tr>
+                <td color="red">{{ i.id }}</td>
+                <td>{{ i.store_id }}</td>
+                <td>
+                    <a href='https://www.storenvy.com/stores/{{ i.store_id }}'>{{ i.store_name }}</a>
+                </td>
+                {% if i.sale_today > 0 %}
+                    <td>
+                        <font color="red">{{ i.sale_today }}</font>
+                    </td>
+                {% else %}
+                    <td>{{ i.sale_today }}</td>
+                {% endif %}
+                <td>{{ i.sale_all }}</td>
+            </tr>
+        {% endfor %}
+        </p>
+    </table>
+{% endblock %}

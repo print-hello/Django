@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <title>数据后台系统</title>
+</head>
+<body align="center">
+    <h1>导航</h1>
+    <div>
+        <button type="submit" onclick="window.open('{{ storenvy_control }}')" id="storenvy_btn" name="storenvy_btn" class="link_btn">Storenvy 管理</button>
+    </div>
+    </br>
+    <div>
+        <button type="submit" onclick="window.open('{{ pinBigAccount_control }}')" id="bigAccount_btn" name="bigAccount_btnn" class="link_btn">Pinterest 账号</button>
+    </div>
+    </br>
+    <div>
+        <button type="submit" onclick="window.open('{{ admin_control }}')" id="admin_btn" name="admin_btn" class="link_btn">Pinterest 大号信息修改</button>
+    </div>
+</body>
+</html>
