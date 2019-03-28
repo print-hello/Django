@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>{% block title %}Pinterest 商业账号信息{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+</head>
+<body>
+{% block body %}
+    <h1 align="center">Pinterest 商业账号</h1>
+    <form action="search" method="get" align="center">
+        <div>
+            <div class="form-input-inline"><input type="date" name="btime" value={{ btime }}></div>
+            <div class="form-input-inline"><input type="date" name="etime" value={{ etime }}></div>
+            <div class="form-input-inline"><input type="submit" value="Search"></div>
+        </div>
+    </form>
+    <table width="90%" align="center" border="3" cellspacing="0">
+        <div>
+            <tr class="log">
+                <td>ID</td>
+                <td>账号</td>
+                <td>传图数量</td>
+                <td>
+                    views(抓取时间: {{ spider_time.spider_time }})
+                    <a href="http://172.16.254.251:8848/menu/pinBusinessAccount/moreViews">查看更多</a>
+                </td>
+            </tr>
+        </div>
+        <div>
+            {% for i in info %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="https://www.pinterest.com/{{ i.0 }}" target="_blank">{{ i.0 }}</a></td>
+                    <td>{{ i.2 }}</td>
+                    <td>{{ i.1 }}</td>
+                </tr>
+            {% endfor %}
+        </div>
+    </table>
+{% endblock %}
+</body>
+</html>

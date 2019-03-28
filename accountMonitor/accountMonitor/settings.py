@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '8(eo3ox45g^b%t^$$z1*#xrxio&h*u6(+p$tgw0a-towb-1u99'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'pinBigAccount',
     'pinSmallAccount',
     'pinBabyAccount',
-    'storenvy'
+    'storenvy',
+    'pinBusinessAccount',
 ]
 
 MIDDLEWARE = [
@@ -91,21 +92,29 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pinterest',
         "USER": "root",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
+        "PASSWORD": "Hbjjz7r9ptyefzjv48ur2",
+        "HOST": "107.150.61.250",
         "PORT": "3306",
     },
     'new_pin': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'new_pin',
         "USER": "root",
-        "PASSWORD": "123456",
-        "HOST": "localhost",
+        "PASSWORD": "Hbjjz7r9ptyefzjv48ur2",
+        "HOST": "107.150.61.250",
         "PORT": "3306",
     },
     'storenvy': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'storenvy',
+        "USER": "root",
+        "PASSWORD": "123456",
+        "HOST": "localhost",
+        "PORT": "3306",
+    },
+    'pin_data_crawl': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pin_data_crawl',
         "USER": "root",
         "PASSWORD": "123456",
         "HOST": "localhost",
@@ -119,6 +128,7 @@ DATABASE_APPS_MAPPING = {
     'pinBigAccount': 'pin_login_system',
     'pinSmallAccount': 'pinterest',
     'pinBabyAccount': 'new_pin',
+    'pinBusinessAccount': 'pin_data_crawl',
     'storenvy': 'storenvy',
     'admin': 'pin_login_system',
     'auth': 'pin_login_system',
@@ -160,11 +170,10 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')

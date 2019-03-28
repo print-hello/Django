@@ -1,0 +1,25 @@
+{% extends 'pinBusinessAccount/pinBusiness.html' %}
+{% block title %}Views{% endblock %}
+{% block body %}
+    <h1 align="center">Pinterest Views</h1>
+        <table width="90%" align="center" border="3" cellspacing="0">
+        <div>
+            <tr class="log">
+                <td>ID</td>
+                <td>账号</td>
+                <td>{{ other_time }}</td>
+                <td>{{ last_time }}</td>
+            </tr>
+        </div>
+        <div>
+            {% for i in row %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.0 }}</td>
+                    <td>{{ i.1 }}</td>
+                    <td>{{ i.2}}</td>
+                </tr>
+            {% endfor %}
+        </div>
+    </table>
+{% endblock %}

@@ -8,6 +8,7 @@ urlpatterns = [
     path('menu/pinBigAccount/', include('pinBigAccount.urls')),
     path('menu/pinSmallAccount/', include('pinSmallAccount.urls')),
     path('menu/pinBabyAccount/', include('pinBabyAccount.urls')),
+    path('menu/pinBusinessAccount/', include('pinBusinessAccount.urls')),
     path('menu/storenvy/', include('storenvy.urls')),
     path('admin/', admin.site.urls),
 ]

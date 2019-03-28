@@ -6,9 +6,11 @@ def show_views(request):
     storenvy_control = base_url + '/storenvy'
     pinBigAccount_control = base_url + '/pinBigAccount'
     admin_control = base_url.replace('/menu', '') + '/admin'
+    pinBusiness_control = base_url + '/pinBusinessAccount'
     context = {'storenvy_control': storenvy_control,
                'pinBigAccount_control': pinBigAccount_control,
-               'admin_control': admin_control}
+               'admin_control': admin_control,
+               'pinBusiness_control': pinBusiness_control}
     return render(request, 'menu/index.html', context)
 
 
