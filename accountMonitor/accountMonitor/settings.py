@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'pinterest',
         "USER": "root",
         "PASSWORD": "Hbjjz7r9ptyefzjv48ur2",
-        "HOST": "107.150.61.250",
+        "HOST": "localhost",
         "PORT": "3306",
     },
     'new_pin': {
@@ -101,7 +101,7 @@ DATABASES = {
         'NAME': 'new_pin',
         "USER": "root",
         "PASSWORD": "Hbjjz7r9ptyefzjv48ur2",
-        "HOST": "107.150.61.250",
+        "HOST": "localhost",
         "PORT": "3306",
     },
     'storenvy': {
